@@ -44,6 +44,7 @@ This review outlines the app structure for a simple inventory management app. It
 #### `/inventory`
 
 * `/inventory/vegetable`
+
   | HTTP Method | Behavior                       |
   | ----------- | ------------------------------ |
   | `GET`       | Get all vegetable in inventory |
@@ -73,6 +74,7 @@ A JavaScript representation of a vegetable in our system looks like:
 ```
 
 * `/inventory/bread`
+
   | HTTP Method | Behavior                   |
   | ----------- | -------------------------- |
   | `GET`       | Get all bread in inventory |
