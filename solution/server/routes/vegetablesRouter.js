@@ -4,7 +4,14 @@ const myInventory = require('../models/inventory')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('This should show all veggies in inventory')
+    let allVeggies = myInventory.getAllItemByType('vegetable')
+    res.json(allVeggies)
+})
+
+router.get('/:id', (req, res) => {
+    let id = parseInt(req.params.id);
+    let = veggie = myInventory.getItemByID(id, 'vegetable')
+    res.json(veggie)
 })
 
 module.exports = router;
