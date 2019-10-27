@@ -41,26 +41,26 @@ class Inventory {
 
     removeItem(itemId, type) {
         console.log(type);
-        if (this[type]) {
-            return this[type] = this[type].filter(el => el.id !== itemId)
-        }
-        // if (type === 'vegetable') {
-        //     for (let i = 0; i < this.vegetables.length; i++) {
-        //         let currItem = this.vegetables[i];
-        //         if (currItem.id === itemId) {
-        //             this.vegetables.splice(i, 1);
-        //             return currItem
-        //         }
-        //     }
-        // } else if (type === 'bread') {
-        //     for (let i = 0; i < this.bread.length; i++) {
-        //         let currItem = this.bread[i];
-        //         if (currItem.id === itemId) {
-        //             this.bread.splice(i, 1);
-        //             return currItem
-        //         }
-        //     }
+        // if (this[type]) {
+        //     return this[type] = this[type].filter(el => el.id !== itemId)
         // }
+        if (type === 'vegetable') {
+            for (let i = 0; i < this.vegetables.length; i++) {
+                let currItem = this.vegetables[i];
+                if (currItem.id === itemId) {
+                    this.vegetables.splice(i, 1);
+                    return currItem
+                }
+            }
+        } else if (type === 'bread') {
+            for (let i = 0; i < this.bread.length; i++) {
+                let currItem = this.bread[i];
+                if (currItem.id === itemId) {
+                    this.bread.splice(i, 1);
+                    return currItem
+                }
+            }
+        }
     }
     getItemByID(itemId, type) {
         let arr;
@@ -90,14 +90,11 @@ class Inventory {
 
 
     updateItem(itemId, upDateItem, type) {
-        console.log("inv", itemId, upDateItem, type)
-
         let item = this.getItemByID(itemId, type)
 
         for (let property in upDateItem) {
             item[property] = upDateItem[property]
         }
-
         return item;
     }
 

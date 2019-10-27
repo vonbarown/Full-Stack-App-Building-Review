@@ -24,7 +24,14 @@ router.patch('/:id', (req, res) => {
     res.json(myInventory.updateItem(id, updateItem, 'vegetable'))
 })
 
-// router.delete()
+router.delete('/:id', (req, res) => {
+    let itemDetails = req.body;
+    let id = parseInt(req.params.id)
+    console.log('iddd', id);
+
+    let removed = myInventory.removeItem(id, 'vegetable')
+    res.json(removed)
+})
 
 router.get('/:id', (req, res) => {
     let id = parseInt(req.params.id);
