@@ -1,3 +1,4 @@
+const Vegetable = require('../models/Vegetable')
 const vegetables = [{
     "id": 1,
     "name": "Carrot",
@@ -13,14 +14,30 @@ class Inventory {
     constructor() {
         this.vegetables = [];
         this.bread = [];
+        this.counterId = 1;
     }
 
-    addItem(item) {
-        if (item.type === 'vegetable') {
-            this.vegetables.push(item)
-        } else {
-            this.bread.push(item)
+    addItem(itemDetails, type) {
+        let itemId = this.counterId;
+        this.counterId++
+
+        if (type === 'vegetable') {
+            let name = itemDetails.name
+            let unit = itemDetails.unit
+            let units = itemDetails.units
+            let origin = itemDetails.origin
+            let price = itemDetails.price
+
+            //create vegetable object
+            let newVeggie = new Vegetable(itemId, name, parseInt(units), parseInt(price), unit, origin);
+
+            this.vegetables.push(newVeggie)
+            return newVeggie;
         }
+        // else if (type === 'bread') {
+        //     // this.bread.push(item)
+        // }
+
     }
 
     removeItem(itemId, type) {
@@ -100,9 +117,9 @@ let item3 = {
 }
 
 
-myInventory.addItem(item1)
-myInventory.addItem(item2)
-myInventory.addItem(item3)
+// myInventory.addItem(item1)
+// myInventory.addItem(item2)
+// myInventory.addItem(item3)
 
 //remove spinach
 let removed = myInventory.getAllItemByType('vegetable')

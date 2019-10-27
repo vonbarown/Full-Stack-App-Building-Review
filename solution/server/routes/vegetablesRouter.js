@@ -9,6 +9,14 @@ router.get('/', (req, res) => {
     res.json(allVeggies)
 })
 
+router.post('/', (req, res) => {
+    let itemDetails = req.body
+
+    let newVeggie = myInventory.addItem(itemDetails, 'vegetable')
+
+    res.json(newVeggie)
+})
+
 router.get('/:id', (req, res) => {
     let id = parseInt(req.params.id);
     let = veggie = myInventory.getItemByID(id, 'vegetable')
