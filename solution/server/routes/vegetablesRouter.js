@@ -1,5 +1,6 @@
 const express = require('express');
 const myInventory = require('../models/inventory')
+const Vegetable = require('../models/Vegetable')
 
 const router = express.Router();
 
