@@ -8,4 +8,4 @@ class Vegetable extends Item {
     }
 }
 
-module.exports = Vegetable;
+module.exports = Vegetable

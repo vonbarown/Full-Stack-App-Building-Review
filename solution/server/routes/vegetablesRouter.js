@@ -17,6 +17,15 @@ router.post('/', (req, res) => {
     res.json(newVeggie)
 })
 
+router.patch('/:id', (req, res) => {
+    let updateItem = req.body;
+
+    let id = parseInt(req.params.id)
+    res.json(myInventory.updateItem(id, updateItem, 'vegetable'))
+})
+
+// router.delete()
+
 router.get('/:id', (req, res) => {
     let id = parseInt(req.params.id);
     let = veggie = myInventory.getItemByID(id, 'vegetable')

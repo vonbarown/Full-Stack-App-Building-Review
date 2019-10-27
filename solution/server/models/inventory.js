@@ -29,14 +29,13 @@ class Inventory {
             let price = itemDetails.price
 
             //create vegetable object
-            let newVeggie = new Vegetable(itemId, name, parseInt(units), parseInt(price), unit, origin);
+            let vegeta = new Vegetable(itemId, name, parseInt(units), parseFloat(price), unit, origin);
 
-            this.vegetables.push(newVeggie)
-            return newVeggie;
+            this.vegetables.push(vegeta)
+            return vegeta;
+        } else if (type === 'bread') {
+            // this.bread.push(item)
         }
-        // else if (type === 'bread') {
-        //     // this.bread.push(item)
-        // }
 
     }
 
@@ -65,7 +64,6 @@ class Inventory {
     }
     getItemByID(itemId, type) {
         let arr;
-
         if (type === 'vegetable') {
             arr = this.vegetables
         } else if (type === 'bread') {
@@ -73,6 +71,7 @@ class Inventory {
         }
 
         for (let i = 0; i < arr.length; i++) {
+            console.log(itemId)
             let currItem = arr[i];
             if (currItem.id === itemId) {
                 return currItem
@@ -90,7 +89,17 @@ class Inventory {
     }
 
 
-    updateItem(item) {}
+    updateItem(itemId, upDateItem, type) {
+        console.log("inv", itemId, upDateItem, type)
+
+        let item = this.getItemByID(itemId, type)
+
+        for (let property in upDateItem) {
+            item[property] = upDateItem[property]
+        }
+
+        return item;
+    }
 
     getAllItem() {}
 
